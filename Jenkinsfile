@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  options {
+    ansiColor('xterm')
+  }
+
   environment {
     ENV_URL = "pipeline.google.com"
     SSH_CRED = credentials("SSH")

@@ -27,7 +27,9 @@ pipeline {
         echo "Two"
         sh 'echo ENV_URL = ${ENV_URL}'
         sh 'env'
-        sh 'echo -e "\e[31mHello"'
+        sh '''
+          echo -e "\\e[31mHello"
+        '''
       }
     }
 

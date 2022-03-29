@@ -31,9 +31,7 @@ pipeline {
         echo "Two"
         sh 'echo ENV_URL = ${ENV_URL}'
         sh 'env'
-        sh '''
-          echo -e "\\e[31mHello"
-        '''
+        echo '\033[34mHello\033[0m \033[33mcolorful\033[0m \033[35mworld!\033[0m'
       }
     }
 

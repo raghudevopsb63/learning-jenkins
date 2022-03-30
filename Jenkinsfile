@@ -78,36 +78,78 @@
 //}
 //
 
+//
+//pipeline {
+//  agent any
+//
+//  stages {
+//
+//    stage('Parallel') {
+//      parallel {
+//
+//        stage('One') {
+//          steps {
+//            sh 'sleep 10'
+//          }
+//        }
+//
+//        stage('Two') {
+//          steps {
+//            sh 'sleep 10'
+//          }
+//        }
+//
+//        stage('Three') {
+//          steps {
+//            sh 'sleep 10'
+//          }
+//        }
+//
+//      }
+//    }
+//
+//  }
+//
+//}
 
 pipeline {
   agent any
-
   stages {
-
-    stage('Parallel') {
-      parallel {
-
-        stage('One') {
-          steps {
-            sh 'sleep 10'
-          }
-        }
-
-        stage('Two') {
-          steps {
-            sh 'sleep 10'
-          }
-        }
-
-        stage('Three') {
-          steps {
-            sh 'sleep 10'
-          }
-        }
-
+    stage('Non-Sequential Stage') {
+      steps {
+        sh 'sleep 10'
       }
     }
-
+    stage('Sequential') {
+      environment {
+        FOR_SEQUENTIAL = "some-value"
+      }
+      stages {
+        stage('In Sequential 1') {
+          steps {
+            sh 'sleep 10'
+          }
+        }
+        stage('In Sequential 2') {
+          steps {
+            sh 'sleep 10'
+          }
+        }
+        stage('Parallel In Sequential') {
+          parallel {
+            stage('In Parallel 1') {
+              steps {
+                sh 'sleep 10'
+              }
+            }
+            stage('In Parallel 2') {
+              steps {
+                sh 'sleep 10'
+              }
+            }
+          }
+        }
+      }
+    }
   }
-
 }

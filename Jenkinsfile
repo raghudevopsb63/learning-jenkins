@@ -1,5 +1,4 @@
 pipeline {
-  agent any
 
   options {
     ansiColor('xterm')
@@ -54,5 +53,7 @@ pipeline {
     }
 
   }
+
+  agent any
 
 }

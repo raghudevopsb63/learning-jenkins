@@ -1,8 +1,8 @@
 pipeline {
 
-  options {
-    ansiColor('xterm')
-  }
+//  options {
+//    ansiColor('xterm')
+//  }
 
   environment {
     ENV_URL = "pipeline.google.com"

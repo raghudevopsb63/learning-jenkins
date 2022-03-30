@@ -80,7 +80,10 @@
 
 
 pipeline {
-  agent any
+  agent {
+    node { label 'workstation'} // Agent node name
+    //label 'ansible'  // Agent labels
+  }
 
   stages {
 
@@ -113,6 +116,7 @@ pipeline {
   post {
     always {
       cleanWs()
+      sh 'echo post'
     }
   }
 

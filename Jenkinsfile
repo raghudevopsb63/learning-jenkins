@@ -81,7 +81,7 @@
 
 pipeline {
   agent {
-    node { label 'workstation'} // Agent node name
+    node { label 'workstation1'} // Agent node name
     //label 'ansible'  // Agent labels
   }
 

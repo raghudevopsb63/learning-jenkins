@@ -172,5 +172,9 @@ node {
     stage('Empty') {
       print 'Hello World'
     }
+  } else {
+    stage('Not Empty') {
+      print 'Hello World'
+    }
   }
 }
